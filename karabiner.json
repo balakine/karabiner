@@ -25,6 +25,69 @@
                         ]
                     },
                     {
+                        "description": "Pass Home/End through in Chrome outside text fields",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXTextField"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXTextArea"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXComboBox"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": { "optional": ["shift"] }
+                                },
+                                "to": [{ "from_event": true }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXTextField"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXTextArea"
+                                    },
+                                    {
+                                        "name": "accessibility.focused_ui_element.role_string",
+                                        "type": "variable_unless",
+                                        "value": "AXComboBox"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": { "optional": ["shift"] }
+                                },
+                                "to": [{ "from_event": true }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Windows-like Ctrl+Backspace/Delete word deletion",
                         "manipulators": [
                             {
