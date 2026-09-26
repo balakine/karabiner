@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Windows-like Ctrl+Backspace/Delete word deletion",
+                        "description": "Pass keys through in Windows App",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -12,9 +12,22 @@
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.rdc\\.macos"
                                         ],
-                                        "type": "frontmost_application_unless"
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
+                                "from": {
+                                    "any": "key_code",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "from_event": true }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Windows-like Ctrl+Backspace/Delete word deletion",
+                        "manipulators": [
+                            {
                                 "from": {
                                     "key_code": "delete_or_backspace",
                                     "modifiers": { "mandatory": ["control"] }
@@ -28,14 +41,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "delete_forward",
                                     "modifiers": { "mandatory": ["control"] }
@@ -54,14 +59,6 @@
                         "description": "Home/End Windows behavior except in RDP apps",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "home",
                                     "modifiers": { "optional": ["shift"] }
@@ -75,14 +72,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "end",
                                     "modifiers": { "optional": ["shift"] }
@@ -96,14 +85,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "home",
                                     "modifiers": {
@@ -120,14 +101,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "end",
                                     "modifiers": {
@@ -149,14 +122,6 @@
                         "description": "Windows-like Ctrl+Left/Right word jump",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "left_arrow",
                                     "modifiers": {
@@ -173,14 +138,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "right_arrow",
                                     "modifiers": {
