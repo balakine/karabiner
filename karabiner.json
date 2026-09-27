@@ -25,12 +25,15 @@
                         ]
                     },
                     {
-                        "description": "Pass Home/End through in Chrome outside text fields",
+                        "description": "Pass Home/End through in Chrome and Safari outside text fields",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
                                         "type": "frontmost_application_if"
                                     },
                                     {
@@ -59,7 +62,10 @@
                             {
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
                                         "type": "frontmost_application_if"
                                     },
                                     {
